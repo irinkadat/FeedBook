@@ -1,0 +1,51 @@
+/* Update class names to match JSX file */
+.signin-page-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.signin-page-container h2 {
+    text-align: center;
+}
+.main-div{
+    /* background-image: url("../assets/background.jpg") */
+
+}
+
+.signin-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.signin-page-form label {
+    font-weight: bold;
+}
+
+.signin-page-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.signin-page-form button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signin-page-form button:hover {
+    background-color: #555;
+}
+
+.signin-page-form p {
+    margin-top: 10px;
+    text-align: center;
+}

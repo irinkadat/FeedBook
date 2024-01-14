@@ -1,0 +1,47 @@
+/* Update class names to match JSX file */
+.signup-page-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.signup-page-container h2 {
+    text-align: center;
+}
+
+.signup-page-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.signup-page-form label {
+    font-weight: bold;
+}
+
+.signup-page-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.signup-page-form button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-page-form button:hover {
+    background-color: #555;
+}
+
+.signup-page-form p {
+    margin-top: 10px;
+    text-align: center;
+}
