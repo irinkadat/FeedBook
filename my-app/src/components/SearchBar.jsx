@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/SearchBar.css";
+import searchIcon from "../assets/search.svg"
+import removeIcon from "../assets/remove.svg"
 
 const SearchBar = ({ onSearch, onReset }) => {
   const [query, setQuery] = useState("");
@@ -33,12 +35,12 @@ const SearchBar = ({ onSearch, onReset }) => {
         value={query}
         onChange={handleInput}
       />
-      <button className="s-btn" onClick={handleSearch}>
-        Search
-      </button>
-      <button className="s-btn" onClick={handleReset}>
+      <img src={searchIcon} onClick={handleSearch}/>
+      <img src={removeIcon} className="s-btn remove" onClick={handleReset}/>
+
+      {/* <button className="s-btn" onClick={handleReset}>
         Reset
-      </button>
+      </button> */}
     </div>
   );
 };
