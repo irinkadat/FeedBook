@@ -11,8 +11,8 @@ const Navigation = ({ isAuthenticated, onSignOut }) => {
 
   const handleSignOut = async () => {
     try {
-      await onSignOut(); // Call the onSignOut function passed as a prop
-      // Redirect to the sign-in page after sign out
+      await onSignOut(); 
+
       navigate('/signin');
     } catch (error) {
       console.error('Sign Out failed:', error);

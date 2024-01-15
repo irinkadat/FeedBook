@@ -1,5 +1,5 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 
 const CommentForm = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm();
@@ -8,7 +8,7 @@ const CommentForm = ({ onSubmit }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>
         Comment:
-        <textarea {...register('comment', { required: true })} />
+        <textarea {...register("comment", { required: true })} />
       </label>
       <button type="submit">Submit Comment</button>
     </form>

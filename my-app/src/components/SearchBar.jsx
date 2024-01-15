@@ -1,14 +1,29 @@
-// components/SearchBar.jsx
-import React, { useState } from 'react';
-import '../styles/SearchBar.css'; // Import your CSS file
+import React, { useState, useEffect } from "react";
+import "../styles/SearchBar.css";
 
-const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
+const SearchBar = ({ onSearch, onReset }) => {
+  const [query, setQuery] = useState("");
+
+  const handleReset = () => {
+    setQuery("");
+    onReset();
+  };
+
+  const handleInput = (e) => {
+    setQuery(e.target.value);
+  };
 
   const handleSearch = () => {
-    // Pass the query to the parent component (e.g., RecipeListPage)
     onSearch(query);
   };
+
+  useEffect(() => {
+    if (query.trim() === "") {
+      handleReset();
+    } else {
+      handleSearch();
+    }
+  }, [query]);
 
   return (
     <div className="search-bar-container">
@@ -16,9 +31,14 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         placeholder="Search recipes..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleInput}
       />
-      <button className="search-btn"  onClick={handleSearch}>Search</button>
+      <button className="s-btn" onClick={handleSearch}>
+        Search
+      </button>
+      <button className="s-btn" onClick={handleReset}>
+        Reset
+      </button>
     </div>
   );
 };
