@@ -7,6 +7,8 @@ const useRecipeDetails = (id) => {
   const [recipeDetails, setRecipeDetails] = useState(null);
 
   const { data, isLoading, isError } = useQuery(['recipeDetails', id], async () => {
+    console.log('Fetching data...');
+
     // Check if recipe details are already present, if yes, return them directly
     if (recipeDetails) {
       return recipeDetails;
@@ -21,14 +23,14 @@ const useRecipeDetails = (id) => {
 
     return data;
   }, {
-    staleTime: 86400000, // 1 hour (adjust this based on your requirement)
-    cacheTime: 86400000, // 1 hour (optional, controls how long the cache is retained)
+    staleTime: 86400000, 
+    cacheTime: 86400000, 
   });
 
   // Optional: Use useEffect to clear the recipe details when the component unmounts
   useEffect(() => {
     return () => setRecipeDetails(null);
-  }, []);
+  }, [id]);
 
   return { data, isLoading, isError };
 };
