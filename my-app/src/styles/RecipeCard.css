@@ -10,7 +10,7 @@
   border-radius: 8px;
   overflow: hidden;
   width: 300px;
-  height: 360px;
+  height: 340px;
   margin: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
@@ -36,19 +36,36 @@ ul {
 
 .recipe-details {
   padding: 16px;
+  
+
 }
 
 .recipe-title {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: #380000;
+  color: #222222;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 40px;
+  height:46px;
 
 
 }
 
 .recipe-category {
   color: #666;
+}
+
+
+
+@media (min-width: 300px) {
+  .recipe-list {
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .recipe-card {
+    width: 300px;
+  }
+
 }

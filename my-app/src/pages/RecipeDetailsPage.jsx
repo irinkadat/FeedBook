@@ -16,7 +16,7 @@ const RecipeDetailsPage = () => {
   }
 
   return (
-    <div>
+    <div className="details-container">
       <RecipeDetails recipes={recipes} />
     </div>
   );

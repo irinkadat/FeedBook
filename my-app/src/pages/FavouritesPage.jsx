@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "../styles/FavoritesPage.css";
+import "../styles/RecipeCard.css"
 
 const FavoritesPage = ({ favorites, onRemoveFromFavorites }) => {
   if (!Array.isArray(favorites)) {
@@ -9,16 +10,16 @@ const FavoritesPage = ({ favorites, onRemoveFromFavorites }) => {
   }
 
   return (
-    <div className="favorites-container">
-      <h1>Favorites</h1>
+    <div className="recipe-list">
+      <h1>Favorites 😻</h1>
       <div className="favorites-list">
         {favorites.length > 0 ? (
           favorites.map((recipe, index) => (
             <div key={index} className="favorite-card">
-              <h3>{recipe.title}</h3>
+              <h3 className="recipe-title">{recipe.title}</h3>
               <p>{recipe.category}</p>
-              <img src={recipe.image} alt={recipe.title} />
-              <button onClick={() => onRemoveFromFavorites(recipe)}>
+              <img className="recipe-img" src={recipe.image} alt={recipe.title} />
+              <button className="remove-btn" onClick={() => onRemoveFromFavorites(recipe)}>
                 Remove
               </button>
             </div>
