@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import '../styles/RecipeCard.css';
-import fav from '../assets/fav.svg';
-import favRed from '../assets/fav-red.svg';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "../styles/RecipeCard.css";
+import fav from "../assets/fav.svg";
+import favRed from "../assets/fav-red.svg";
 
-const RecipeCard = ({ title, category, image, onAddToFavorites, isFavorite }) => {
+const RecipeCard = ({
+  title,
+  category,
+  image,
+  onAddToFavorites,
+  isFavorite,
+}) => {
   const [localIsFavorite, setLocalIsFavorite] = useState(isFavorite);
   const [isHovered, setHovered] = useState(false);
 
@@ -18,16 +24,15 @@ const RecipeCard = ({ title, category, image, onAddToFavorites, isFavorite }) =>
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    // Toggle localIsFavorite when adding/removing from favorites
+    
     setLocalIsFavorite(!localIsFavorite);
 
-    // Call the parent's onAddToFavorites function
     onAddToFavorites({ title, category, image });
   };
 
   return (
     <div
-      className={`recipe-card ${isHovered ? 'hovered' : ''}`}
+      className={`recipe-card ${isHovered ? "hovered" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

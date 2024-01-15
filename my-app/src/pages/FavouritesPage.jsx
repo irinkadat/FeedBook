@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../styles/FavoritesPage.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "../styles/FavoritesPage.css";
 
 const FavoritesPage = ({ favorites, onRemoveFromFavorites }) => {
-  // Check if favorites is an array before using map
   if (!Array.isArray(favorites)) {
-    console.error('Favorites is not an array:', favorites);
+    console.error("Favorites is not an array:", favorites);
     return <div>Error: Invalid favorites data</div>;
   }
 
@@ -19,7 +18,9 @@ const FavoritesPage = ({ favorites, onRemoveFromFavorites }) => {
               <h3>{recipe.title}</h3>
               <p>{recipe.category}</p>
               <img src={recipe.image} alt={recipe.title} />
-              <button onClick={() => onRemoveFromFavorites(recipe)}>Remove</button>
+              <button onClick={() => onRemoveFromFavorites(recipe)}>
+                Remove
+              </button>
             </div>
           ))
         ) : (

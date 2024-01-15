@@ -1,10 +1,9 @@
-/* styles/SearchBar.css */
 
 .search-bar-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px; 
   }
   
   input {
@@ -12,7 +11,8 @@
     margin-right: 5px;
   }
   
-  .search-btn {
+  .s-btn {
     padding: 8px 15px;
+    margin-left: 8px;
   }
   

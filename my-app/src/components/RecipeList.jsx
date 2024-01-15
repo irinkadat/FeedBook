@@ -11,27 +11,27 @@ const RecipeList = ({ recipes, favorites, onAddToFavorites }) => {
 
   return (
     <ul className="recipe-list">
-      {recipes.map((recipe) => { 
-        if (recipe.image){
-        return (
-          <li key={recipe.id}>
-            <Link
-              to={`/recipe/${recipe.id}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <RecipeCard
-                title={recipe.title}
-                category={recipe.category}
-                image={recipe.image}
-                onAddToFavorites={onAddToFavorites}
-                isFavorite={favorites?.some(
-                  (fav) => fav.title === recipe.title
-                )}
-              />
-            </Link>
-          </li>
-        );
-                }
+      {recipes.map((recipe) => {
+        if (recipe.image) {
+          return (
+            <li key={recipe.id}>
+              <Link
+                to={`/recipe/${recipe.id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <RecipeCard
+                  title={recipe.title}
+                  category={recipe.category}
+                  image={recipe.image}
+                  onAddToFavorites={onAddToFavorites}
+                  isFavorite={favorites?.some(
+                    (fav) => fav.title === recipe.title
+                  )}
+                />
+              </Link>
+            </li>
+          );
+        }
       })}
     </ul>
   );

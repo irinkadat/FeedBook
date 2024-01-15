@@ -1,4 +1,3 @@
-// components/RecipeDetails.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -17,7 +16,7 @@ const RecipeDetails = ({ recipes }) => {
       <img className="recipe-image" src={selectedRecipe.image} alt={selectedRecipe.title} />
       <div className="recipe-details">
         <h2 className="detailrec-title">{selectedRecipe.title}</h2>
-        {/* Check if ingredients is defined before joining */}
+       
         {selectedRecipe.ingredients && (
           <p className="recipe-ingredients">Ingredients: {selectedRecipe.ingredients.join(', ')}</p>
         )}
