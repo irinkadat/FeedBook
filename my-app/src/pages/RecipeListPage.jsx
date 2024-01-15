@@ -6,7 +6,9 @@ import SearchBar from '../components/SearchBar';
 
 const RecipeListPage = ({ onAddToFavorites }) => {
   const { data: recipes, isLoading, isError } = useRecipes();
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const [filteredRecipes, setFilteredRecipes] = useState();
+
+  console.log('rame',filteredRecipes);
 
   const handleSearch = (query) => {
     // Filter recipes based on the search query
@@ -24,10 +26,11 @@ const RecipeListPage = ({ onAddToFavorites }) => {
     return <div>Error fetching recipes</div>;
   }
 
+  console.log(recipes);
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      <RecipeList recipes={filteredRecipes} onAddToFavorites={onAddToFavorites} />
+      <RecipeList recipes={filteredRecipes ? filteredRecipes:recipes} onAddToFavorites={onAddToFavorites} />
     </div>
   );
 };
