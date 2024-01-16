@@ -33,7 +33,7 @@ const Navigation = ({ isAuthenticated, onSignOut }) => {
           <img className="logo" src={ramen} alt="logo" />
         </Link>
         <li className="home-link">
-          <Link to="/">Home</Link>
+          <Link to="/">FeedBook</Link>
         </li>
         {isAuthenticated ? (
           <>
