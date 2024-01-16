@@ -20,7 +20,7 @@ const RecipeDetails = ({ recipes }) => {
         {selectedRecipe.ingredients && (
           <p className="recipe-ingredients">Ingredients: {selectedRecipe.ingredients.join(', ')}</p>
         )}
-        <p className="recipe-instructions">Instructions: {selectedRecipe.instructions}</p>
+        <div dangerouslySetInnerHTML={{ __html: selectedRecipe.instructions }} className="recipe-instructions"/>
       </div>
     </div>
   );
