@@ -56,7 +56,7 @@ const SignInPage = ({ onSignIn }) => {
   return (
     <div className="main-div">
       <div className="signin-page-container">
-        <h2>Sign In</h2>
+        <h2>Sign In 🕯️</h2>
         <form
           onSubmit={handleSubmit(handleSignIn)}
           className="signin-page-form"

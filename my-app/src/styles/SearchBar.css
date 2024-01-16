@@ -3,20 +3,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px; 
+    margin-top: 20px;
   }
   
   input {
     padding: 8px;
-    margin-right: 18px;
+    margin-right: 12px;
     display: flex;
     align-items: center;
     width: 20%;
     height: 40px;
     border-radius: 24px;
     padding: 0 10px;
-    background-color: #f4f3f3;
+    background-color: #fff;
     justify-content: space-between;
+    border: solid 1.5px #8b8b8d;
   }
   
   .s-btn {
@@ -35,8 +36,7 @@
 
   .s-btn.remove {
     padding: 0;
-    height: 38px;
-    margin-left: 12px;  
-    width: auto;
+    width: 26px;
+    margin: 0;  
   }
   
