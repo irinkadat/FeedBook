@@ -10,6 +10,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import FavoritesPage from "./pages/FavouritesPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./styles/SearchBar.css";
+import './styles/Global.css'; 
 
 const queryClient = new QueryClient();
 
