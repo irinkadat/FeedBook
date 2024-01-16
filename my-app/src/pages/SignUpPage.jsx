@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -23,6 +23,7 @@ const SignUpPage = ({ onSignUp }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const navigate = useNavigate();
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
   const handleSignUp = async (data) => {
     try {
@@ -34,38 +35,50 @@ const SignUpPage = ({ onSignUp }) => {
       );
       const user = userCredential.user;
 
-      onSignUp(user);
+      if (user) {
+        setIsUserSignedIn(true);
+      }
+      console.log(user);
 
-      navigate("/");
     } catch (error) {
       console.error("Registration failed:", error);
     }
   };
 
+  useEffect(() => {
+    console.log(isUserSignedIn);
+    if (isUserSignedIn) {
+      navigate("/");
+    }
+  }, [navigate, isUserSignedIn]);
+
   return (
     <div className="main-div">
-    <div className="signup-page-container">
-      <h2>Sign Up 🍕</h2>
-      <form onSubmit={handleSubmit(handleSignUp)} className="signup-page-form">
-        <label>Email:</label>
-        <input type="text" {...register("email")} />
-        {errors.email && <p>{errors.email.message}</p>}
+      <div className="signup-page-container">
+        <h2>Sign Up 🍕</h2>
+        <form
+          onSubmit={handleSubmit(handleSignUp)}
+          className="signup-page-form"
+        >
+          <label>Email:</label>
+          <input type="text" {...register("email")} />
+          {errors.email && <p>{errors.email.message}</p>}
 
-        <label>Password:</label>
-        <input type="password" {...register("password")} />
-        {errors.password && <p>{errors.password.message} </p>}
+          <label>Password:</label>
+          <input type="password" {...register("password")} />
+          {errors.password && <p>{errors.password.message} </p>}
 
-        <label>Confirm Password:</label>
-        <input type="password" {...register("confirmPassword")} />
-        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+          <label>Confirm Password:</label>
+          <input type="password" {...register("confirmPassword")} />
+          {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
 
-        <button type="submit">Sign Up</button>
-      </form>
+          <button type="submit">Sign Up</button>
+        </form>
 
-      <p>
-        Already have an account? <Link to="/signin">Sign In</Link>
-      </p>
-    </div>
+        <p>
+          Already have an account? <Link to="/signin">Sign In</Link>
+        </p>
+      </div>
     </div>
   );
 };

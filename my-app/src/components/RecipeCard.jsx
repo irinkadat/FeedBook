@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "../styles/RecipeCard.css";
 import fav from "../assets/fav.svg";
 import favRed from "../assets/fav-red.svg";
+import { getAuth } from "firebase/auth";
+import { app } from "../firebaseConfig";
 
 const RecipeCard = ({
   title,
@@ -24,11 +26,13 @@ const RecipeCard = ({
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    
+
     setLocalIsFavorite(!localIsFavorite);
 
-    onAddToFavorites({ title, category, image });
+    onAddToFavorites({ title, image });
   };
+  const auth = getAuth(app);
+  const user = auth.currentUser;
 
   return (
     <div
@@ -40,12 +44,14 @@ const RecipeCard = ({
       <div className="recipe-details">
         <h3 className="recipe-title">{title}</h3>
         <p className="recipe-category">{category}</p>
-        <img
-          className="heart-icon"
-          src={localIsFavorite ? favRed : fav}
-          alt=""
-          onClick={(e) => handleAddToFavorites(e)}
-        />
+        {user && (
+          <img
+            className="heart-icon"
+            src={localIsFavorite ? favRed : fav}
+            alt=""
+            onClick={(e) => handleAddToFavorites(e)}
+          />
+        )}
       </div>
     </div>
   );

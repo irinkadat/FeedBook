@@ -67,13 +67,23 @@ const App = () => {
   };
 
   const handleAddToFavorites = (newFavorite) => {
-    const newFavoritesArray = [...favorites, newFavorite];
+    console.log(favorites.includes(newFavorite));
+    console.log(favorites);
+    console.log(newFavorite);
+    const exists = favorites.some(item =>
+      item.title === newFavorite.title && item.image === newFavorite.image
+    );
+    if(!exists){
+  
+      const newFavoritesArray = [...favorites, newFavorite];
+      console.log("Type of newFavorites:", typeof newFavoritesArray);
+      console.log("Content of newFavorites:", newFavoritesArray);
+      
+      setFavorites(newFavoritesArray);
+      localStorage.setItem("favorites", JSON.stringify(newFavoritesArray));
 
-    console.log("Type of newFavorites:", typeof newFavoritesArray);
-    console.log("Content of newFavorites:", newFavoritesArray);
+    }
 
-    setFavorites(newFavoritesArray);
-    localStorage.setItem("favorites", JSON.stringify(newFavoritesArray));
   };
 
   const handleRemoveFromFavorites = (recipeToRemove) => {
