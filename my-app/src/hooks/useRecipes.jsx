@@ -4,7 +4,7 @@ import { axiosInstance } from "../lib/axios"
 
 const fetchReceipes = async() => {
   const apiKey = 'd816055e34cb4348aca41d05f9d397a5';
-  const response = await axiosInstance.get(`/random?apiKey=${apiKey}&number=50`);
+  const response = await axiosInstance.get(`/random?apiKey=${apiKey}&number=70`);
   console.log(response.data);
   return response.data.recipes
 }
